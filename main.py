@@ -80,7 +80,7 @@ class Captcha(object):
                         + 0.0722 * image_new[:,:,2])
         return np.where(image_raw < 0.5, 0, 1)
 
-    def _find_chars(self, im_path: str) -> list:
+    def _find_chars(self, im_path: str) -> str:
         """
         Find characters/numerals in the image.
         """
