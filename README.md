@@ -21,7 +21,7 @@ unseen captchas.
 
 There are four main methods: `_read_image`, `_preprocess_image`, `_split_data_and_learn`, and `_evaluate` in the Captcha class.
 
-1. `_read_image`: Given the path to the image txt, read the image as a numpy array;
+1. `_read_image`: Given the path to the image txt, read the image as a numpy array.
 2. `_preprocess_image`: Normalize the image. 
 3. `_split_data_and_learn`: Construct train/test dataset and train the SVM model. Since the number of features is larger than the number of training examples, a linear kernel is used. 
 4. `_evaluate`: Evaluate the model performance on the test dataset. 
