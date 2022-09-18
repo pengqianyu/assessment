@@ -19,17 +19,17 @@ unseen captchas.
 
 ## Method
 
-There are four main methods: `_read_image`, `_grayscale_image`, `_learn` and `_find_chars` in the Captcha class.
+There are four main methods: `_read_image`, `_preprocess_image`, `_split_data_and_learn`, and `_evaluate` in the Captcha class.
 
 1. `_read_image`: Given the path to the image txt, read the image as a numpy array;
-2. `_grayscale_image`: Convert the image to grayscale;
-3. `_learn`: Use the sample set images and find pixel-wise representations where we need to identidy the start/end columns for each character/numeral. It creates a dictionary that maps character/numeral from to numpy array;
-4. `_find_chars`: Given a new image, find all characters/numerals in the image. Here a similar technique is used to identidy the start/end columns for each character/numeral as in `_learn`.
+2. `_preprocess_image`: Normalize the image. 
+3. `_split_data_and_learn`: Construct train/test dataset and train the SVM model. Since the number of features is larger than the number of training examples, a linear kernel is used. 
+4. `_evaluate`: Evaluate the model performance on the test dataset. 
 
 ## Usage
-Suppose an unseen captcha is located at `input/input00.jpg` and in `main.py` we set
+Suppose an unseen captcha is located at `input/input100.jpg` and in `main.py` we set
 ```
     captcha = Captcha()
-    captcha('input/input00.jpg', 'output/output.txt')
+    captcha('input/input100.jpg', 'output/output.txt')
 ```
 Run `main.py` will produce a file `output.txt` that contains all characters/numerals in the unseen captcha.
